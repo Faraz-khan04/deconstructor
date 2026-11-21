@@ -1,0 +1,66 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/RushGame.gd" id="1_rg"]
+[ext_resource type="Script" path="res://background/Paper.gd" id="2_pp"]
+[ext_resource type="Script" path="res://paint/PaintLayer.gd" id="3_pl"]
+[ext_resource type="Script" path="res://fragments/FragmentPool.gd" id="4_fp"]
+[ext_resource type="Script" path="res://collector/Catcher.gd" id="5_ca"]
+[ext_resource type="Script" path="res://player/Slicer.gd" id="6_sl"]
+[ext_resource type="Script" path="res://juice/Sparks.gd" id="7_sp"]
+[ext_resource type="Script" path="res://paint/Squeegee.gd" id="8_sq"]
+[ext_resource type="Script" path="res://ui/RushHUD.gd" id="9_hud"]
+[ext_resource type="Script" path="res://ui/EventLayer.gd" id="10_ev"]
+[ext_resource type="Script" path="res://ui/RushResult.gd" id="11_res"]
+
+[node name="Rush" type="Node2D"]
+script = ExtResource("1_rg")
+
+[node name="Paper" type="ColorRect" parent="."]
+mouse_filter = 2
+script = ExtResource("2_pp")
+
+[node name="PaintLayer" type="Node2D" parent="."]
+script = ExtResource("3_pl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(540, 1200)
+ignore_rotation = false
+
+[node name="Things" type="Node2D" parent="."]
+
+[node name="FragmentPool" type="Node2D" parent="."]
+script = ExtResource("4_fp")
+
+[node name="BinLeft" type="Node2D" parent="."]
+position = Vector2(190, 2060)
+script = ExtResource("5_ca")
+steer = false
+line_y = 2060.0
+width = 330.0
+miss_lost = true
+
+[node name="BinRight" type="Node2D" parent="."]
+position = Vector2(890, 2060)
+script = ExtResource("5_ca")
+steer = false
+line_y = 2060.0
+width = 330.0
+miss_lost = true
+
+[node name="Slicer" type="Node2D" parent="."]
+script = ExtResource("6_sl")
+
+[node name="Sparks" type="Node2D" parent="."]
+script = ExtResource("7_sp")
+
+[node name="Squeegee" type="Node2D" parent="."]
+script = ExtResource("8_sq")
+
+[node name="RushHUD" type="CanvasLayer" parent="."]
+script = ExtResource("9_hud")
+
+[node name="EventLayer" type="CanvasLayer" parent="."]
+script = ExtResource("10_ev")
+
+[node name="RushResult" type="CanvasLayer" parent="."]
+script = ExtResource("11_res")

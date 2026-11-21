@@ -1,0 +1,98 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://game/Game.gd" id="1_game"]
+[ext_resource type="Script" path="res://player/DeconstructorBlade.gd" id="2_bl"]
+[ext_resource type="Script" path="res://player/SawVisual.gd" id="3_sv"]
+[ext_resource type="Script" path="res://background/Paper.gd" id="4_pp"]
+[ext_resource type="Script" path="res://paint/PaintLayer.gd" id="5_pl"]
+[ext_resource type="Script" path="res://ui/HUD.gd" id="6_hud"]
+[ext_resource type="Script" path="res://fragments/FragmentPool.gd" id="8_fp"]
+[ext_resource type="Script" path="res://collector/Grinder.gd" id="9_gr"]
+[ext_resource type="Script" path="res://collector/Catcher.gd" id="10_mg"]
+[ext_resource type="Script" path="res://juice/Sparks.gd" id="11_sp"]
+[ext_resource type="Script" path="res://paint/Squeegee.gd" id="12_sq"]
+[ext_resource type="Script" path="res://ui/UpgradeBar.gd" id="13_ub"]
+[ext_resource type="Script" path="res://collector/PinField.gd" id="14_pf"]
+[ext_resource type="Script" path="res://game/Rewards.gd" id="15_rw"]
+[ext_resource type="Script" path="res://ui/CatalogScreen.gd" id="16_cs"]
+[ext_resource type="Script" path="res://ui/EventLayer.gd" id="17_ev"]
+[ext_resource type="Script" path="res://game/Frenzy.gd" id="18_fz"]
+[ext_resource type="Script" path="res://game/ComboTracker.gd" id="19_ct"]
+[ext_resource type="Script" path="res://game/Job.gd" id="20_job"]
+[ext_resource type="Script" path="res://ui/ResultScreen.gd" id="21_res"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_game")
+
+[node name="Paper" type="ColorRect" parent="."]
+mouse_filter = 2
+script = ExtResource("4_pp")
+
+[node name="PaintLayer" type="Node2D" parent="."]
+script = ExtResource("5_pl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(540, 1200)
+ignore_rotation = false
+
+[node name="PinField" type="Node2D" parent="."]
+script = ExtResource("14_pf")
+
+[node name="Catcher" type="Node2D" parent="."]
+position = Vector2(540, 1930)
+script = ExtResource("10_mg")
+
+[node name="Things" type="Node2D" parent="."]
+
+[node name="FragmentPool" type="Node2D" parent="."]
+script = ExtResource("8_fp")
+
+[node name="Grinder" type="Node2D" parent="."]
+script = ExtResource("9_gr")
+
+[node name="DeconstructorBlade" type="AnimatableBody2D" parent="."]
+position = Vector2(540, 1100)
+script = ExtResource("2_bl")
+
+[node name="Trail" type="Line2D" parent="DeconstructorBlade"]
+
+[node name="SawShadow" type="Node2D" parent="DeconstructorBlade"]
+position = Vector2(7, 10)
+script = ExtResource("3_sv")
+shadow_only = true
+
+[node name="SawVisual" type="Node2D" parent="DeconstructorBlade"]
+script = ExtResource("3_sv")
+
+[node name="Sparks" type="Node2D" parent="."]
+script = ExtResource("11_sp")
+
+[node name="Squeegee" type="Node2D" parent="."]
+script = ExtResource("12_sq")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+script = ExtResource("6_hud")
+
+[node name="UpgradeBar" type="CanvasLayer" parent="."]
+script = ExtResource("13_ub")
+
+[node name="Rewards" type="Node" parent="."]
+script = ExtResource("15_rw")
+
+[node name="ComboTracker" type="Node" parent="."]
+script = ExtResource("19_ct")
+
+[node name="Job" type="Node" parent="."]
+script = ExtResource("20_job")
+
+[node name="ResultScreen" type="CanvasLayer" parent="."]
+script = ExtResource("21_res")
+
+[node name="Frenzy" type="CanvasLayer" parent="."]
+script = ExtResource("18_fz")
+
+[node name="EventLayer" type="CanvasLayer" parent="."]
+script = ExtResource("17_ev")
+
+[node name="CatalogScreen" type="CanvasLayer" parent="."]
+script = ExtResource("16_cs")

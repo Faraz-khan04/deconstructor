@@ -1,0 +1,53 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Deconstructor"
+run/main_scene="res://menu.tscn"
+config/features=PackedStringArray("4.7", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+ThemePalette="*res://autoload/ThemePalette.gd"
+EventBus="*res://autoload/EventBus.gd"
+Save="*res://autoload/Save.gd"
+Economy="*res://autoload/Economy.gd"
+JuiceManager="*res://autoload/JuiceManager.gd"
+Sfx="*res://autoload/Sfx.gd"
+FpsMeter="*res://autoload/FpsMeter.gd"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=2400
+window/size/window_width_override=432
+window/size/window_height_override=960
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+window/handheld/orientation=1
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[layer_names]
+
+2d_physics/layer_1="blade"
+2d_physics/layer_2="blocks"
+2d_physics/layer_3="fragments"
+2d_physics/layer_4="walls"
+2d_physics/layer_5="pegs"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
